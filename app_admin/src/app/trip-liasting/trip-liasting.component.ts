@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 //import { trips } from '../data/trips';
 import { TripCardComponent } from '../trip-card/trip-card.component';
 import { TripDataService } from '../services/trip-data.service';
-import { Trip } from '../models/trip'; // Assuming you have a Trip model defined
+import { Trip } from '../models/trip'; 
 import {Router} from '@angular/router';
 
 @Component({

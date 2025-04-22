@@ -1,34 +1,81 @@
-<div class="col-md-4">
-    <h2 class="text-center">Edit Trip</h2>
-    <form *ngIf="addForm" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<div class="container">
+  <h2>Edit Trip</h2>
+  <p class="message" *ngIf="message">{{message}}</p>
   
-      <div class="form-group">
-        <label>Code:</label>
-        <input type="text" formControlName="code"
-               placeholder="Code" class="form-control"
-               [ngClass]="{ 'is-invalid': submitted && f['code'].errors }">
-        <div *ngIf="submitted && f['code'].errors">
-          <div *ngIf="f['code'].errors?.['required']">
-            Trip Code is required
-          </div>
-        </div>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <!-- Hidden ID field -->
+    <input type="hidden" formControlName="_id">
+    
+    <div class="form-group">
+      <label for="code">Code:</label>
+      <input type="text" class="form-control" formControlName="code" id="code" readonly>
+      <div *ngIf="submitted && f['code'].errors" class="error">
+        <div *ngIf="f['code'].errors['required']">Code is required</div>
       </div>
-  
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" formControlName="name"
-               placeholder="Name" class="form-control"
-               [ngClass]="{ 'is-invalid': submitted && f['name'].errors }">
-        <div *ngIf="submitted && f['name'].errors">
-          <div *ngIf="f['name'].errors?.['required']">
-            Name is required
-          </div>
-        </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+      <div *ngIf="submitted && f['name'].errors" class="error">
+        <div *ngIf="f['name'].errors['required']">Name is required</div>
       </div>
-  
-      <div class="form-group">
-        <label>Length:</label>
-        <input type="text" formControlName="length"
-               placeholder="Length" class="form-control"
-               [ngClass]="{ 'is-invalid': submitted && f['length'].errors }">
-        <div *ngIf*
+    </div>
+    
+    <div class="form-group">
+      <label for="length">Length:</label>
+      <input type="text" class="form-control" formControlName="length" id="length">
+      <div *ngIf="submitted && f['length'].errors" class="error">
+        <div *ngIf="f['length'].errors['required']">Length is required</div>
+      </div>
+    </div>
+    
+    <!-- Add the missing fields below -->
+    <div class="form-group">
+      <label for="start">Start Date:</label>
+      <input type="text" class="form-control" formControlName="start" id="start">
+      <div *ngIf="submitted && f['start'].errors" class="error">
+        <div *ngIf="f['start'].errors['required']">Start date is required</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="resort">Resort:</label>
+      <input type="text" class="form-control" formControlName="resort" id="resort">
+      <div *ngIf="submitted && f['resort'].errors" class="error">
+        <div *ngIf="f['resort'].errors['required']">Resort is required</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="perPerson">Price Per Person:</label>
+      <input type="text" class="form-control" formControlName="perPerson" id="perPerson">
+      <div *ngIf="submitted && f['perPerson'].errors" class="error">
+        <div *ngIf="f['perPerson'].errors['required']">Price per person is required</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="image">Image URL:</label>
+      <input type="text" class="form-control" formControlName="image" id="image">
+      <div *ngIf="submitted && f['image'].errors" class="error">
+        <div *ngIf="f['image'].errors['required']">Image URL is required</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" formControlName="description" id="description" rows="4"></textarea>
+      <div *ngIf="submitted && f['description'].errors" class="error">
+        <div *ngIf="f['description'].errors['required']">Description is required</div>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Update Trip</button>
+      <a [routerLink]="['/']" class="btn btn-secondary">Cancel</a>
+    </div>
+  </form>
+</div>
+
+

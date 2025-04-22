@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('./app_api/models/db');
+
+
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
@@ -27,6 +30,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Enable cors
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/travel', travelRouter);
+
+// Enable CORS specifically for API routes
 app.use('/api', (req, res, next) => {
   res.header("Access-Control-Allow-Origin", 'http://localhost:4200');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -34,9 +42,6 @@ app.use('/api', (req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/travel', travelRouter);
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler

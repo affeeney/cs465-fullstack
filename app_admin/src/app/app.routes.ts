@@ -5,5 +5,6 @@ import { EditTripComponent } from './edit-trip/edit-trip.component';
 
 export const routes: Routes = [
     { path: 'add-trip', component: AddTripComponent },
+    { path: 'edit-trip', component: EditTripComponent },
     { path: '', component: TripLiastingComponent, pathMatch: 'full' }
  ];

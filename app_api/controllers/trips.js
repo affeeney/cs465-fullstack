@@ -4,7 +4,7 @@ const Model = mongoose.model('trips'); // Import the Mongoose model
 
 const tripsList = async(req, res) => {
     const q = await Model
-        .find({'code' : req.params.tripCode})
+        .find({})
         .exec();
 
     
@@ -22,7 +22,7 @@ const tripsList = async(req, res) => {
 };
 
 const tripsFindByCode = async(req, res) => {
-    const query = await Model
+    const q = await Model
         .find({'code' : req.params.tripCode})
         .exec();
 
