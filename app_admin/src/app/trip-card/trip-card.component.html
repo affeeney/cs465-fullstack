@@ -1,9 +1,9 @@
 <div class="card" style="width: 16rem">  
     <div class="card-header">{{ trip.name }}</div>  
     <img 
-      src="assets/images/{{ trip.image }}"   
+      src="/images/{{ trip.image }}"   
       alt="trip thumbnail" 
-      class="card-img-top">  
+      class="card-img-top">    
     <div class="card-body">  
       <h6 class="card-subtitle mb-2 text-muted">  
         {{ trip.resort }}  
@@ -13,7 +13,7 @@
       </p>  
       <p class="card-text" [innerHTML]="trip.description"></p>  
     </div>
-    <div>
+    <div *ngIf="isLoggedIn()">
       <button (click)="editTrip(trip)" class="btn-info">Edit Trip</button>
     </div>
 </div>

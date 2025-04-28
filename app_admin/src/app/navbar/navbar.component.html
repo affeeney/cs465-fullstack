@@ -1,0 +1,21 @@
+<!-- src/app/navbar/navbar.component.html -->
+
+<nav class="navbar navbar-expand navbar-light bg-light">
+    <a class="navbar-brand" href="#">Travlr</a>
+    <div class="navbar-nav ml-auto">
+      <a class="nav-item nav-link" routerLink="/home">Home</a>
+      <a
+        class="nav-item nav-link"
+        *ngIf="!isLoggedIn()"
+        routerLink="/login"
+        >Log In</a
+      >
+      <a
+        class="nav-item nav-link"
+        *ngIf="isLoggedIn()"
+        (click)="onLogout()"
+        >Log Out</a
+      >
+    </div>
+  </nav>
+  
