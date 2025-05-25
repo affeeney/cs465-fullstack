@@ -52,3 +52,8 @@ Login – This is where the user enters their browser on the client side and ent
 Website Entry – The user then enters the site through their account and requests access to their portfolio. Through validation and authentication, the server then communicates the database through the ODM to retrieve the requested data. This is returned to the frontend for the user to view.
 
 Portfolio Browsing – The user then utilizes the websites core functionalities, looking for new destinations and commodities. This component (Travel portfolio) then sends a request to the server to return new destinations from the database. This is then returned to the frontend component and displays results in on the interface
+
+![image](https://github.com/user-attachments/assets/8114c7df-9e43-4907-80ec-12fdc34f32dd)
+
+![image](https://github.com/user-attachments/assets/c7ba319a-dd64-4eea-ba03-dfa10891e49e)
+
